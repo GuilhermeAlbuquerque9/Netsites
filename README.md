@@ -32,7 +32,7 @@ Ou, manda um e-mail para Netsites_PBS@hotmail.com para conversarmos! Retrô-anal
 ## 📜 Licença
 
 Este projeto é livre, como a Internet deveria ser.  
-Licença: [Licença](LICENSE)
+Licença: [Licença](LICENSE.md)
 
 ---
 
