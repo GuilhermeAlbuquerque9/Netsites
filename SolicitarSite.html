@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitar Site - Netsites™</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("2Nb7bLDPb1KNhPb7b"); // Substitua pelo seu User ID do EmailJS
+    })();
+
+    function enviarFormulario(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_a1qg3vs', 'template_xq1z4zc', e.target)
+        .then(() => {
+          alert("✅ Pedido enviado com sucesso!");
+        }, (error) => {
+          alert("❌ Erro ao enviar: " + error.text);
+        });
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #FFB6C1, #ADD8E6, #98FB98);
+      font-family: 'Courier New', monospace;
+      color: #000;
+      padding: 20px;
+    }
+    .container {
+      background-color: #FFF;
+      border: 3px ridge #000;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 5px 5px 0px #333;
+    }
+    h1 {
+      text-align: center;
+      background-color: #FFFF00;
+      padding: 10px;
+      border: 2px dashed #000;
+      color: #000080;
+      text-transform: uppercase;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+      background-color: #E0FFFF;
+      padding: 5px;
+      border-left: 5px solid #FF4500;
+    }
+    input, textarea {
+      margin-top: 5px;
+      padding: 8px;
+      border: 2px inset #999;
+      background-color: #F5F5F5;
+      font-family: 'Courier New', monospace;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #FFD700;
+      border: 2px outset #333;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 30px;
+      color: #333;
+      border-top: 2px dotted #000;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Solicitar um Site</h1>
+    <form onsubmit="enviarFormulario(event)">
+      <label for="nome">👤 Nome:</label>
+      <input type="text" name="nome" id="nome" required>
+
+      <label for="email">📧 E-mail:</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="tipo">🌐 Tipo de Site:</label>
+      <input type="text" name="tipo" id="tipo" placeholder="Ex: Portfólio, Loja, Blog..." required>
+
+      <label for="mensagem">💬 Mensagem:</label>
+      <textarea name="mensagem" id="mensagem" rows="5" placeholder="Conte mais sobre o que você precisa..." required></textarea>
+
+      <button type="submit">🚀 Enviar Pedido</button>
+    </form>
+
+    <div class="footer">
+      © Netsites™, 2025. Todos os direitos reservados.
+    </div>
+  </div>
+</body>
+</html>

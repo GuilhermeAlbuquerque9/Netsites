@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Netsites™</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #FFB6C1, #ADD8E6, #98FB98);
+      font-family: 'Courier New', monospace;
+      color: #000;
+      padding: 20px;
+      margin: 0;
+    }
+    header {
+      text-align: center;
+      background-color: #FFFF00;
+      padding: 15px;
+      border-bottom: 3px dashed #000;
+      box-shadow: 0 4px 0 #333;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #000080;
+      text-transform: uppercase;
+    }
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #FFF;
+      border: 3px ridge #000;
+      padding: 20px;
+      box-shadow: 5px 5px 0px #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      background-color: #E0FFFF;
+      padding: 5px;
+      border-left: 5px solid #FF4500;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 2px inset #999;
+      background-color: #F5F5F5;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #FFD700;
+      border: 2px outset #333;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      box-shadow: 2px 2px 0px #666;
+    }
+    button:hover {
+      background-color: #FFA500;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 40px;
+      color: #333;
+      border-top: 2px dotted #000;
+      padding-top: 10px;
+      background-color: #F5F5F5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📞 Fale conosco</h1>
+    <p>Estamos prontos para ouvir você!</p>
+  </header>
+
+  <main>
+    <form id="form-contato">
+      <label for="nome">👤 Seu Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">📧 Seu E-mail:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="assunto">📂 Assunto:</label>
+      <select id="assunto" name="assunto" required>
+        <option value="">Selecione</option>
+        <option value="suporte">🛠️ Suporte técnico</option>
+        <option value="comercial">💼 Comercial</option>
+        <option value="outros">📎 Outros</option>
+      </select>
+
+      <label for="mensagem">💬 Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+      <button type="submit">🚀 Enviar Mensagem</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© Netsites™, 2025. Todos os direitos reservados. • HTML puro, sem frescura. 💾</p>
+  </footer>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    emailjs.init("2Nb7bLDPb1KNhPb7b");
+
+    document.getElementById("form-contato").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs.sendForm("service_a1qg3vs", "Contato_Netsites", this)
+        .then(() => {
+          alert("✅ Mensagem enviada com sucesso!");
+          this.reset();
+        }, (error) => {
+          alert("❌ Ops! Algo deu errado. Tente novamente.");
+          console.error("Erro:", error);
+        });
+    });
+  </script>
+</body>
+</html>
